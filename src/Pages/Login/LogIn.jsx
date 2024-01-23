@@ -6,7 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const LogIn = () => {
 
-    const {signIn, signInWithGoogle} = useContext(AuthContext);
+    const {signIn, signInWithGoogle, signInWithGitHub} = useContext(AuthContext);
     const [error, setError] = useState(null);
 
     const handleSignInUser = (event) =>{
@@ -51,7 +51,7 @@ const LogIn = () => {
                         <hr className='w-[45%] bg-[#95A0A7]' />
                     </div>
                     <button onClick={signInWithGoogle} className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[33px]'><FcGoogle className='text-[32px]' /><span>Continue with Google</span></button>
-                    <button className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[10px]'><AiFillGithub className='text-[32px]' /><span>Continue with Github</span></button>
+                    <button onClick={signInWithGitHub} className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[10px]'><AiFillGithub className='text-[32px]' /><span>Continue with Github</span></button>
                 </form>
             </section>
         </section>
