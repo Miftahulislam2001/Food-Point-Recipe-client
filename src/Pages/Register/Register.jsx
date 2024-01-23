@@ -1,12 +1,12 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 
 const Register = () => {
-    const {createUser, user, updateProfileData} = useContext(AuthContext)
-    
+    const {createUser, updateProfileData} = useContext(AuthContext)
+    const [error, setError] = useState(null);
     
     const handleRegister = (event) =>{
         event.preventDefault();
@@ -15,19 +15,33 @@ const Register = () => {
         const photo = form.profile.value;
         const email = form.email.value;
         const password = form.password.value;
-        const confirm = form.confirmPassword.value;
+        const confirmPassword = form.confirmPassword.value;
 
+        if(!name || !photo || !email || !password || !confirmPassword) {
+            setError("Cannot leave any field empty")
+            return
+        } 
+        
+        if(password.length < 6) {
+            setError("password at least 6 character")
+            return
+        }
+        if(password !== confirmPassword) {
+            setError("password not matched")
+            return
+        }
+        setError(null)
         createUser(email, password)
         .then(result =>{
             updateProfileData(result.user, name, photo)
             form.reset()
+            
         })
         .catch(error =>{
-            console.log(error);
+            setError(error.message)
         })
+    };
 
-
-    }
 
     return (
         <main className='ui-container md:flex items-center w-full gap-5 h-[90vh]'>
@@ -55,7 +69,7 @@ const Register = () => {
                         <label htmlFor="confirm-password">Confirm Password</label>
                         <input type="password" name="confirmPassword" id="confirm-password" className='border rounded p-2 text-base' autoComplete='off' placeholder='Confirm Password' />
                     </div>
-                    <p className='text-[#da4747]'></p>
+                    <p className='text-[#da4747]'>{error && error}</p>
                     <button type='submit' className='bg-[#900000] text-white w-full p-2 text-[21px] rounded mt-[10px]'>Sign Up</button>
                     <p className='mt-[8px] text-center'>Already have an account? <Link to="/login" className='text-[#1f32dd]'>Login</Link></p>
 

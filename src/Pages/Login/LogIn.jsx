@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const LogIn = () => {
+
+    const {signIn, signInWithGoogle} = useContext(AuthContext);
+    const [error, setError] = useState(null);
+
+    const handleSignInUser = (event) =>{
+
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+        .then(result =>{
+            console.log(result.user);
+            form.reset()
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+    }
+
+
     return (
         <section className='ui-container items-center w-full gap-5'>
 
             <section className='border rounded-xl p-[25px] mt-10 shadow-3xl mx-auto md:w-1/2'>
                 <h2 className='text-center text-3xl'>Login</h2>
-                <form>
+                <form onSubmit={handleSignInUser}>
                     <div className='flex flex-col my-4'>
                         <label htmlFor="email" className='text-[17px]'>Email</label>
                         <input type="email" name="email" id="email" className='border rounded p-2 text-base' autoComplete='off' placeholder='email' required />
@@ -18,7 +41,7 @@ const LogIn = () => {
                         <label htmlFor="password" className='text-[17px]'>Password</label>
                         <input type="password" name="password" id="password" className='border rounded p-2 text-base' autoComplete='off' placeholder='password' />
                     </div>
-                    <p className='text-[#da4747]'></p>
+                    <p className='text-[#da4747]'>{error && error}</p>
                     <button type='submit' className='bg-[#900000] text-white w-full p-2 text-[21px] rounded mt-[10px]'>Login</button>
                     <p className='mt-[8px] text-center'>New to Pototo Chef? <Link to="/register" className='text-[#1f81dd]'>Create New Account</Link></p>
 
@@ -27,7 +50,7 @@ const LogIn = () => {
                         <p className='text-[#95A0A7]'>Or</p>
                         <hr className='w-[45%] bg-[#95A0A7]' />
                     </div>
-                    <button className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[33px]'><FcGoogle className='text-[32px]' /><span>Continue with Google</span></button>
+                    <button onClick={signInWithGoogle} className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[33px]'><FcGoogle className='text-[32px]' /><span>Continue with Google</span></button>
                     <button className='p-[10px] border rounded w-full flex justify-center items-center gap-[6px] mt-[10px]'><AiFillGithub className='text-[32px]' /><span>Continue with Github</span></button>
                 </form>
             </section>

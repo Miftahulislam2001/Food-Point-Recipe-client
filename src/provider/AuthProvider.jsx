@@ -1,35 +1,45 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.init';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
 
 export const AuthContext = createContext('')
-const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-   
 
-    // Register with Email And Password
+    const auth = getAuth(app)
+    const [user, setUser] = useState(null);
+
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    const signIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
+    }
 
-    // Update Profile  
+
+    const googleProvider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     const updateProfileData = (user, name, photo) => {
-        console.log(user, name, photo);
         updateProfile(user, {
             displayName: name,
             photoURL: photo
         })
-           
     };
 
-    // Display last Logged User 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
         })
-        return () =>{
+        return () => {
             unsubscribe();
         }
     }, [])
@@ -39,8 +49,10 @@ const AuthProvider = ({ children }) => {
     const userInfo = {
         user,
         createUser,
+        signIn,
+        signInWithGoogle,
         updateProfileData,
-        
+
     }
 
     return (
