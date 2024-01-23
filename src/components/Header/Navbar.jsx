@@ -7,7 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
 
     return (
@@ -35,12 +35,13 @@ const Navbar = () => {
 
                     <li>
                         {
-                           user?.photoURL &&  <img className="w-[35px] h-[35px] rounded-full" src={user?.photoURL} title={user?.displayName} alt="" />
+                            user?.photoURL && <img className="w-[35px] h-[35px] rounded-full" src={user?.photoURL} title={user?.displayName} alt="" />
                         }
                     </li>
-                    <li>{
-                        <button className="bg-[#900000] px-4 py-2 rounded text-white"><Link to="/login">Login</Link></button>
-                    }
+                    <li>
+                        {
+                            user ? <button onClick={logOut} className="bg-[#900000] px-4 py-2 rounded text-white"><Link to="/">LogOut</Link></button> : <button className="bg-[#900000] px-4 py-2 rounded text-white"><Link to="/login">LogIn</Link></button>
+                        }
                     </li>
                 </ul>
             </div>
