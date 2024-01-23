@@ -7,6 +7,7 @@ import LogIn from '../Pages/Login/LogIn';
 import Home from '../components/Home/Home';
 import ErrorPage from '../Pages/Error/ErrorPage';
 
+
 const Routes = createBrowserRouter([
     {
         path: "/",
@@ -29,6 +30,7 @@ const Routes = createBrowserRouter([
                 path: "/login",
                 element: <LogIn/>
             },
+
         ]
        
     }
