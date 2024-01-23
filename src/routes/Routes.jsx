@@ -4,12 +4,17 @@ import Admin from '../Admin/Admin';
 import Blog from '../Pages/Blog/Blog';
 import Register from '../Pages/Register/Register';
 import LogIn from '../Pages/Login/LogIn';
+import Home from '../components/Home/Home';
 
 const Routes = createBrowserRouter([
     {
         path: "/",
         element: <Admin/>,
         children: [
+            {
+                path: "/",
+                element: <Home/>
+            },
             {
                 path: "/blog",
                 element: <Blog/>

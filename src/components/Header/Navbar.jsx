@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="px-4 mx-4 my-2 rounded sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-[#e5e4e4]">
+        <nav className="px-4 mx-4 mt-2  sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-[#e5e4e4]">
             <div className="ui-container flex justify-between items-center py-3">
                 <div className='flex justify-center items-center gap-2'>
                     <IoRestaurantSharp className='text-3xl text-[#900000]' />
