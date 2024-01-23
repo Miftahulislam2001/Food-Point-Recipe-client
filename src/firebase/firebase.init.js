@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyC0d-8NiQ0IFr21G1T6bwhd2a42yIFQvPw",
-  authDomain: "food-points-recipe.firebaseapp.com",
-  projectId: "food-points-recipe",
-  storageBucket: "food-points-recipe.appspot.com",
-  messagingSenderId: "274206537848",
-  appId: "1:274206537848:web:2205a6dade072e3626158d"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
