@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { IoRestaurantSharp } from "react-icons/io5";
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
+    const { user } = useContext(AuthContext);
+
+
     return (
         <nav className="px-4 mx-4 my-2 rounded sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8 bg-[#e5e4e4]">
             <div className="ui-container flex justify-between items-center py-3">
@@ -29,9 +33,10 @@ const Navbar = () => {
                         <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>Register</NavLink>
                     </li>
 
-                    <li>{
-                        <img className="w-[35px] h-[35px] rounded-full" src="" alt="" />
-                    }
+                    <li>
+                        {
+                           user?.photoURL &&  <img className="w-[35px] h-[35px] rounded-full" src={user?.photoURL} title={user?.displayName} alt="" />
+                        }
                     </li>
                     <li>{
                         <button className="bg-[#900000] px-4 py-2 rounded text-white"><Link to="/login">Login</Link></button>

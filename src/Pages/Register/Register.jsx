@@ -8,6 +8,7 @@ const Register = () => {
     const {createUser, updateProfileData} = useContext(AuthContext)
     const [error, setError] = useState(null);
     
+    
     const handleRegister = (event) =>{
         event.preventDefault();
         const form = event.target;

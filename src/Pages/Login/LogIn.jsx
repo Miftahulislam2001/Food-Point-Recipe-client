@@ -43,7 +43,7 @@ const LogIn = () => {
                     </div>
                     <p className='text-[#da4747]'>{error && error}</p>
                     <button type='submit' className='bg-[#900000] text-white w-full p-2 text-[21px] rounded mt-[10px]'>Login</button>
-                    <p className='mt-[8px] text-center'>New to Pototo Chef? <Link to="/register" className='text-[#1f81dd]'>Create New Account</Link></p>
+                    <p className='mt-[8px] text-center'>New to Food Points ? <Link to="/register" className='text-[#1f81dd]'>Create New Account</Link></p>
 
                     <div className='flex items-center justify-between mt-[25px] '>
                         <hr className='w-[45%] bg-[#95A0A7]' />
