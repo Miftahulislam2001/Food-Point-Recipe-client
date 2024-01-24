@@ -1,3 +1,7 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Mulish&family=Poppins&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,3 +22,13 @@
 .active {
     @apply underline text-[#900000] font-bold
 }
+
+/* .font-family{
+    @apply font-family: 'Poppins', sans-serif;
+} */
+
+@layer base {
+    html {
+        font-family: 'Poppins', sans-serif;
+    }
+  }
