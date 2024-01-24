@@ -17,7 +17,7 @@ const Chef = ({ chef }) => {
                         <p className="font-bold my-2">Total likes : {likes}</p>
                         <p className="font-bold my-2">recipes : {number_of_recipes}</p>
                         <div className="card-actions justify-end">
-                            <Link className="absolute bottom-0 right-0 py-2 px-5 rounded font-semibold text-white mt-3 inline-block bg-[#900000]" to="/">View Recipes</Link>
+                            <Link className="absolute bottom-0 right-0 py-2 px-5 rounded font-semibold text-white mt-3 inline-block bg-[#900000]" to={`/chef/${_id}`}>View Recipes</Link>
                         </div>
                     </div>
 
