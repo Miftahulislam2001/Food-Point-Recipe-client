@@ -9,7 +9,7 @@ const SinglePageBanner = ({ chef }) => {
             </div>
 
             <div className="absolute right-0 left-0 top-10 flex gap-5  items-center">
-                <div className="border p-5 rounded grid grid-cols-1 md:grid-cols-4 gap-5 text-white">
+                <div className=" p-5 rounded grid grid-cols-1 md:grid-cols-4 gap-5 text-white">
                     <div className="h-[350px] w-full mx-auto">
                         <img className="h-full object-cover w-full rounded" src={image} alt="" />
                     </div>

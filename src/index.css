@@ -11,6 +11,10 @@
     @apply px-4 mx-4 mt-20 rounded sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-20
   }
 
+  .ui-container {
+    @apply max-w-[1240px] mx-auto px-3
+}
+
 /* .btn {
     @apply inline-flex items-center h-10 px-5 mb-2 font-medium text-white transition duration-200 rounded-md shadow-md md:mb-0 bg-blue-500 hover:bg-blue-700 outline-none
 } */

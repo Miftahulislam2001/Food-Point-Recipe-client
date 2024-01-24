@@ -9,7 +9,7 @@ const Admin = () => {
     return (
         <div>
             <Navbar/>
-            <div className="min-h-[calc(100vh-256px)]">
+            <div className="min-h-[calc(100vh-100px)]">
             {
                 navigation.state === 'loading' && <Spinner/>  
             }
