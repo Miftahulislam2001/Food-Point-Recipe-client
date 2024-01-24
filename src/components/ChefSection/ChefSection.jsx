@@ -7,10 +7,10 @@ const ChefSection = () => {
   
     return (
         <div className="my-[140px] my-container " id="our-chefs">
-             <h2 className="text-center text-5xl font-bold ">Meet Our Best <span className='text-[#900000]'>Chefs</span></h2>
+             <h2 className="text-center text-5xl font-serif font-bold ">Meet Our Best <span className='text-[#900000]'>Chefs</span></h2>
            
-             <hr class=" border-2 border-[#ae2f2f]  my-2 w-[15%] mx-auto"/>
-             <hr class=" border-2 border-[#ae2f2f] my-2 w-[10%] mx-auto"/>
+             <hr className=" border-2 border-[#ae2f2f]  my-2 w-[15%] mx-auto"/>
+             <hr className=" border-2 border-[#ae2f2f] my-2 w-[10%] mx-auto"/>
              {/* <hr class=" border-2 border-[#ae2f2f]  w-[5%] mx-auto"/> */}
              <section className="grid md:grid-cols-2 gap-5 mt-10">
 
