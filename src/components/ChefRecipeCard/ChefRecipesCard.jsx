@@ -11,8 +11,10 @@ const ChefRecipesCard = ({ recipeData }) => {
                 <button>Favorite</button>
                 <div className="border p-4 rounded">
                     <span className="font-bold text-xl ">ingredient : </span>
-                    <div className="md:flex gap-3 flex-wrap">
-                        ingredient
+                    <div className="md:flex gap-3 flex-wrap items-center justify-center">
+                        {
+                            recipeData?.ingredient && recipeData.ingredient.map((ingredient, idx)=> <span key={idx}>{ingredient}</span>)
+                        }
                     </div>
                 </div>
                 <div className="my-5">
