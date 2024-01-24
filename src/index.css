@@ -4,7 +4,7 @@
 
 
 .my-container{
-    @apply px-4 mx-4 my-2 rounded sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8
+    @apply px-4 mx-4 mt-20 rounded sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-20
   }
 
 /* .btn {
