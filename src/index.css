@@ -15,9 +15,6 @@
     @apply max-w-[1240px] mx-auto px-3
 }
 
-/* .btn {
-    @apply inline-flex items-center h-10 px-5 mb-2 font-medium text-white transition duration-200 rounded-md shadow-md md:mb-0 bg-blue-500 hover:bg-blue-700 outline-none
-} */
 
 .badge {
     @apply inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-yellow-400
@@ -26,10 +23,6 @@
 .active {
     @apply underline text-[#900000] font-bold
 }
-
-/* .font-family{
-    @apply font-family: 'Poppins', sans-serif;
-} */
 
 @layer base {
     html {
