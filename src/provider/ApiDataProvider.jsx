@@ -6,7 +6,7 @@ const ApiDataProvider = ({children}) => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(()=>{
-        fetch('https://chafe-cafe.vercel.app')
+        fetch('https://food-point-recipe-server.vercel.app')
         .then(res => res.json())
         .then(data => setChefs(data))
     }, [])
