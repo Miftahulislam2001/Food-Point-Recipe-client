@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const LogIn = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+   
 
     const {signIn, signInWithGoogle, signInWithGitHub} = useContext(AuthContext);
     const [error, setError] = useState(null);
@@ -15,10 +19,13 @@ const LogIn = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+     
 
         signIn(email, password)
         .then(result =>{
-            console.log(result.user);
+            
+            navigate(from, {replace: true})
+
             form.reset()
         })
         .catch(error =>{
