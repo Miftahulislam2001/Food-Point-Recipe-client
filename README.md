@@ -1,8 +1,23 @@
-# React + Vite
+# Food Points Recipes Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## This project Name : (Food Points Recipes)
 
-Currently, two official plugins are available:
+## Live Link : =>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    Hosted in Firebase : [Food Point]()
+
+## This Website Features : =>
+
+- Best Chefs in the world 
+
+- Home page contains chefs section you with chef details example (chef picture, chef name, yours of experience, number of recipes, likes and view recipes button)
+
+- view recipes page require login
+
+- if user id is present then able to see chef detail and all recipes this current chef
+
+- login page check valid email and password
+
+- for registration require filled 5 felid (name, photo url, email, password, confirm password). not allowed any field empty
+
+- recipe details page have favorite button in recipe card if click there this button is disable and show toast

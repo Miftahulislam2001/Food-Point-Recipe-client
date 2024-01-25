@@ -11,10 +11,6 @@ const ChefRecipesCard = ({ recipeData }) => {
 
     }
 
-
-
-
-
     return (
         <article className="p-4 rounded border w-full">
             <img className="w-full h-[450px] rounded object-cover" src={food_image} alt="" />
