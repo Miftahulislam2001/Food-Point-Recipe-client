@@ -1,6 +1,14 @@
 import React from "react";
+import { Margin, usePDF } from "react-to-pdf";
+
 
 const Blog = () => {
+  const { toPDF, targetRef } = usePDF({
+    method: "save",
+    filename: "usepdf-example.pdf",
+    page: { margin: Margin.MEDIUM },
+  });
+
   return (
     <div className="max-w-[1240px] mx-auto mb-24">
       <h1 className="text-center text-4xl font-semibold mt-6">
@@ -8,12 +16,12 @@ const Blog = () => {
         <span className="text-[#900000] font-extrabold">Question ?</span>
       </h1>
       <button
-        
+       onClick={toPDF}
         className="bg-[#900000] block mx-auto mt-5 px-4 py-2 rounded text-white w-[150px]"
       >
         Download Pdf
       </button>
-      <div className=" grid md:grid-cols-2 gap-8  mt-24">
+      <div ref={targetRef} className=" grid md:grid-cols-2 gap-8  mt-24">
         <div className="border p-5 rounded shadow-md">
           <h3 className="text-2xl font-extrabold text-[#900000] mb-8">
             1. Tell us the differences between uncontrolled and controlled

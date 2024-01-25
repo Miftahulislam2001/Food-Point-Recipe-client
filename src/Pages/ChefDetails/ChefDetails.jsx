@@ -8,7 +8,7 @@ const ChefDetails = () => {
     const {id} = useParams();
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/${id}`)
+        fetch(`https://chafe-cafe.vercel.app/${id}`)
         .then(res => res.json())
         .then(data => setChef(data))
     }, [])

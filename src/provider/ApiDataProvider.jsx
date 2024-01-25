@@ -6,7 +6,7 @@ const ApiDataProvider = ({children}) => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/')
+        fetch('https://chafe-cafe.vercel.app')
         .then(res => res.json())
         .then(data => setChefs(data))
     }, [])
@@ -14,9 +14,6 @@ const ApiDataProvider = ({children}) => {
     const ApiData = {
         chefs,
     }
-
-
-
 
     return (
         <ApiContext.Provider value={ApiData}>
