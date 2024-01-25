@@ -7,8 +7,8 @@ const Chef = ({ chef }) => {
     return (
         <div>
             <article className="p-4 rounded border">
-                <div className="w-full md:flex gap-2 relative">
-                    <div className="h-[270px] w-1/2" threshold={0.95}>
+                <div className="w-full flex flex-col md:flex-row gap-2 relative">
+                    <div className="h-[270px] w-full md:w-1/2" threshold={0.95}>
                         <img className="h-full w-full object-cover" src={image} alt="chefs" />
                     </div>
                     <div className="md:w-1/2 p-3 text-gray-700">
